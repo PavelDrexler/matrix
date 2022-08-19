@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Job
+metadata:
+  name: matrix_pod
+spec:
+  containers:
+    - name: matrix_container
+      image: matrix_image
+      volumeMounts:
+      - name: matrix_volume
+        mountPath: /usr/app/src
+  volumes:
+    - name: matrix_volume
+      configMap:
+        name: matrix_config_file
