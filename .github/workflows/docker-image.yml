@@ -12,10 +12,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Publish to DockerHub
-        uses: docker/build-push-action@v1
+      - name: Build image and Publish to DockerHub
+        uses: mr-smithers-excellent/docker-build-push@v5
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: paveldrexler/matrix_assignment
-          tags: latest, ${{ github.run_number }}
+          image: paveldrexler/matrix_assignment
+          registry: docker.io
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
