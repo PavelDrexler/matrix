@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: matrix-job
+spec:
+  template:
+    metadata:
+      name: test-job
+    spec:
+      containers:
+        - name: test
+          image: paveldrexler/matrix_assignment:test
+          volumeMounts:
+          - name: matrix-volume
+            mountPath: /usr/app/src
+          command: ["python",  "./cheapest_path.py"]
+      restartPolicy: Never
+      volumes:
+        - name: matrix-volume
+          configMap:
+            name: assignment-config-file
+  backoffLimit: 4

@@ -12,5 +12,4 @@ COPY cheapest_path.py ./
 RUN pip install networkx
 # Add necessary libraries
 
-CMD ["python", "./cheapest_path.py"]
-# Run script
+CMD echo "Snake ready!"
