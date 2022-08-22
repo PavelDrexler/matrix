@@ -6,10 +6,5 @@ FROM python:latest
 WORKDIR /usr/app/src
 # Change working directory 
 
-COPY cheapest_path.py ./
-# Copy script files
-
 RUN pip install networkx
 # Add necessary libraries
-
-CMD echo "Snake ready!"
