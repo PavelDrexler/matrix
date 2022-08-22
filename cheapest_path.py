@@ -1,4 +1,12 @@
 import networkx as nx
+import time
+from os.path import exists
+
+matrix_exists = exists ('./matrix.txt')
+
+while not (matrix_exists):
+    time.sleep (1)
+    print ("Matrix.txt dosen't exist. Zzzzz")
 
 with open('matrix.txt') as f:
     lines = f.read().splitlines()
